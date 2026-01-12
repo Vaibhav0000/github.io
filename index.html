@@ -4,30 +4,34 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Vaibhav Nangia | Data & Business Analytics Portfolio</title>
-    <meta name="description" content="Portfolio of Vaibhav Nangia - Technical BA and Data Analyst specializing in Healthcare and Foundational Analytics." />
-
+    <title>Vaibhav Nangia, PMP | Technical BA & Data Portfolio</title>
     <link rel="stylesheet" href="css/style.css" />
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Source+Sans+Pro:wght@400;600;700;900&display=swap" rel="stylesheet" />
+    <style>
+      /* Quick style overrides for your specific requests */
+      .home-hero { background: linear-gradient(to right, rgba(30, 39, 46, 0.9), rgba(30, 39, 46, 0.9)), url("./assets/svg/common-bg.svg"); background-position: center; } /* Darker professional background */
+      .profile-img-hero { width: 180px; height: 180px; border-radius: 50%; border: 5px solid #facf0f; margin-bottom: 2rem; object-fit: cover; }
+      .header__logo-img { border-radius: 50%; }
+      .skills__category-title { width: 100%; font-weight: 700; margin-top: 2rem; color: #444; text-transform: uppercase; font-size: 1.4rem; }
+      .pmp-badge { background: #facf0f; color: #000; padding: 2px 8px; border-radius: 4px; font-size: 0.9rem; vertical-align: middle; margin-left: 10px; }
+    </style>
   </head>
   <body>
     <header class="header">
       <div class="header__content">
         <div class="header__logo-container">
-          <span class="header__logo-sub">Vaibhav Nangia</span>
+          <div class="header__logo-img-cont">
+            <img src="./assets/jpeg/vaibhav-profile.png" alt="Vaibhav Nangia" class="header__logo-img" />
+          </div>
+          <span class="header__logo-sub">Vaibhav Nangia <span class="pmp-badge">PMP®</span></span>
         </div>
         <div class="header__main">
           <ul class="header__links">
-            <li class="header__link-wrapper"><a href="./index.html" class="header__link"> Home </a></li>
-            <li class="header__link-wrapper"><a href="./index.html#about" class="header__link">About </a></li>
-            <li class="header__link-wrapper"><a href="./index.html#projects" class="header__link"> Projects </a></li>
-            <li class="header__link-wrapper"><a href="./index.html#contact" class="header__link"> Contact </a></li>
+            <li class="header__link-wrapper"><a href="#about" class="header__link">About</a></li>
+            <li class="header__link-wrapper"><a href="#experience" class="header__link">Experience</a></li>
+            <li class="header__link-wrapper"><a href="#projects" class="header__link">Projects</a></li>
+            <li class="header__link-wrapper"><a href="YOUR_RESUME_LINK_HERE" class="header__link" target="_blank" style="color: #facf0f;">Resume</a></li>
+            <li class="header__link-wrapper"><a href="#contact" class="header__link">Contact</a></li>
           </ul>
         </div>
       </div>
@@ -35,64 +39,89 @@
 
     <section class="home-hero">
       <div class="home-hero__content">
-        <h1 class="heading-primary">Hey, I'm Vaibhav Nangia</h1>
+        <img src="./assets/jpeg/vaibhav-profile.png" alt="Vaibhav Nangia" class="profile-img-hero" />
+        
+        <h1 class="heading-primary">Vaibhav Nangia, PMP®</h1>
         <div class="home-hero__info">
           <p class="text-primary">
-            A Technical Business Analyst & Data Analyst bridging the gap between complex data and strategic decision-making. 
+            A PMP® Certified Technical Business Analyst with 5+ years of experience in data-driven decision making. I specialize in bridging the gap between complex technical engineering and business strategy to deliver high-impact projects in Healthcare and Education.
           </p>
         </div>
         <div class="home-hero__cta">
-          <a href="./#projects" class="btn btn--bg">View Case Studies</a>
+          <a href="./#projects" class="btn btn--bg">Explore My Work</a>
         </div>
       </div>
+      
       <div class="home-hero__socials">
         <div class="home-hero__social">
-          <a href="https://www.linkedin.com/in/vaibhavnangia08050805/" class="home-hero__social-icon-link" target="_blank">
+          <a href="https://www.linkedin.com/in/vaibhavnangia08050805/" target="_blank" class="home-hero__social-icon-link">
             <img src="./assets/png/linkedin-ico.png" alt="LinkedIn" class="home-hero__social-icon" />
           </a>
         </div>
         <div class="home-hero__social">
-          <a href="https://github.com/Vaibhav0000" class="home-hero__social-icon-link" target="_blank">
+          <a href="https://github.com/Vaibhav0000" target="_blank" class="home-hero__social-icon-link">
             <img src="./assets/png/github-ico.png" alt="GitHub" class="home-hero__social-icon" />
           </a>
+        </div>
+        <div class="home-hero__social">
+          <a href="mailto:nangiavaibhav9@gmail.com" class="home-hero__social-icon-link">
+            <img src="https://img.icons8.com/ios-filled/50/ffffff/mail.png" alt="Email" class="home-hero__social-icon" style="width: 25px;"/>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="about sec-pad" style="background: #f7f7f7;">
+      <div class="main-container">
+        <h2 class="heading heading-sec">
+          <span class="heading-sec__main">Experience</span>
+        </h2>
+        <div class="about__content">
+          <div class="about__content-details">
+            <div style="margin-bottom: 3rem;">
+              <h3 style="font-size: 1.8rem;">Technical Business Analyst</h3>
+              <p style="font-style: italic; color: #666;">Key Sector: Healthcare Analytics</p>
+              <ul style="font-size: 1.1rem; line-height: 1.8; margin-top: 1rem;">
+                <li>Led data-driven analysis for drug usage patterns, optimizing procurement costs by 15%.</li>
+                <li>Designed automated ETL workflows using Alteryx to reduce reporting time by 40 hours monthly.</li>
+                <li>Managed cross-functional stakeholders as a PMP-certified lead to ensure project alignment with clinical goals.</li>
+              </ul>
+            </div>
+            <div>
+              <h3 style="font-size: 1.8rem;">Data & Analytics Lead</h3>
+              <p style="font-style: italic; color: #666;">Project: Foundational Analytics Dashboard</p>
+              <ul style="font-size: 1.1rem; line-height: 1.8; margin-top: 1rem;">
+                <li>Developed interactive dashboards in PowerBI and MicroStrategy for executive-level college selection insights.</li>
+                <li>Identified 10+ key performance indicators (KPIs) to track student success and financial sustainability.</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <section id="about" class="about sec-pad">
       <div class="main-container">
-        <h2 class="heading heading-sec heading-sec__mb-med">
-          <span class="heading-sec__main">About Me</span>
-          <span class="heading-sec__sub">Solving business challenges through data engineering, visualization, and process automation.</span>
+        <h2 class="heading heading-sec">
+          <span class="heading-sec__main">Skills & Certifications</span>
         </h2>
         <div class="about__content">
-          <div class="about__content-main">
-            <h3 class="about__content-title">My Professional Profile</h3>
-            <div class="about__content-details">
-              <p class="about__content-details-para">
-                I specialize in <strong>Technical Business Analysis</strong> and <strong>Project Management</strong>, with a core focus on the healthcare and education sectors. My approach combines rigorous data analysis with automation to optimize workflows and deliver clear, actionable insights.
-              </p>
-              <p class="about__content-details-para">
-                Whether it's performing drug usage analysis or building foundational analytics dashboards, I leverage tools like <strong>Alteryx</strong> and <strong>MicroStrategy</strong> to transform raw datasets into competitive advantages.
-              </p>
-            </div>
-          </div>
           <div class="about__content-skills">
-            <h3 class="about__content-title">Technical Stack</h3>
+            <div class="skills__category-title">Certifications</div>
+            <div class="skills"><div class="skills__skill" style="background: #facf0f; color: #000; font-weight: bold;">PMP® Certified</div></div>
+
+            <div class="skills__category-title">Technical Skills</div>
             <div class="skills">
-              <div class="skills__skill">SQL</div>
-              <div class="skills__skill">Python (Pandas)</div>
-              <div class="skills__skill">Alteryx</div>
-              <div class="skills__skill">PowerBI</div>
-              <div class="skills__skill">MicroStrategy</div>
-              <div class="skills__skill">Tableau</div>
-              <div class="skills__skill">Requirements Gathering</div>
-              <div class="skills__skill">UiPath (RPA)</div>
-              <div class="skills__skill">Stakeholder Management</div>
-              <div class="skills__skill">Agile / Scrum</div>
-              <div class="skills__skill">JIRA</div>
-              <div class="skills__skill">Risk Mitigation</div>
-              <div class="skills__skill">Excel (VBA)</div>
+              <div class="skills__skill">Alteryx</div><div class="skills__skill">PowerBI</div><div class="skills__skill">MicroStrategy</div>
+              <div class="skills__skill">SQL</div><div class="skills__skill">Python</div><div class="skills__skill">UiPath (RPA)</div>
+              <div class="skills__skill">Tableau</div><div class="skills__skill">JIRA / Confluence</div>
+            </div>
+
+            <div class="skills__category-title">Behavioral & Management</div>
+            <div class="skills">
+              <div class="skills__skill">Agile & Scrum</div><div class="skills__skill">Stakeholder Management</div>
+              <div class="skills__skill">Strategic Planning</div><div class="skills__skill">Conflict Resolution</div>
+              <div class="skills__skill">Project Lifecycle (SDLC)</div><div class="skills__skill">Cross-functional Leadership</div>
             </div>
           </div>
         </div>
@@ -101,57 +130,37 @@
 
     <section id="projects" class="projects sec-pad">
       <div class="main-container">
-        <h2 class="heading heading-sec heading-sec__mb-bg">
-          <span class="heading-sec__main">Projects</span>
-        </h2>
-
+        <h2 class="heading heading-sec"><span class="heading-sec__main">Projects</span></h2>
         <div class="projects__content">
           <div class="projects__row">
             <div class="projects__row-img-cont">
-              <img src="./assets/jpeg/project-mockup-example.jpeg" alt="Healthcare Analysis" class="projects__row-img" />
+              <img src="./assets/jpeg/healthcare-project.jpg" alt="Healthcare Project" class="projects__row-img" />
             </div>
             <div class="projects__row-content">
-              <h3 class="projects__row-content-title">Technical BA: Healthcare Drug Usage Analysis</h3>
-              <p class="projects__row-content-desc">
-                Conducted deep-dive analysis into drug utilization patterns using SQL and Alteryx. Developed insights to improve supply chain efficiency and clinical outcomes by identifying trends in prescription data and cost-per-unit variances.
-              </p>
-              <a href="https://github.com/Vaibhav0000" class="btn btn--med btn--theme dynamicBgClr" target="_blank">GitHub Repository</a>
+              <h3 class="projects__row-content-title">Healthcare Drug Usage Analysis</h3>
+              <p class="projects__row-content-desc">A deep-dive analysis identifying usage trends and cost anomalies in pharmaceutical data using Alteryx and SQL.</p>
+              <a href="https://github.com/Vaibhav0000" class="btn btn--med btn--theme" target="_blank">View Repo</a>
             </div>
           </div>
           <div class="projects__row">
             <div class="projects__row-img-cont">
-              <img src="./assets/jpeg/project-mockup-example.jpeg" alt="College Dashboard" class="projects__row-img" />
+              <img src="./assets/jpeg/college-dashboard.jpg" alt="Analytics Dashboard" class="projects__row-img" />
             </div>
             <div class="projects__row-content">
-              <h3 class="projects__row-content-title">Foundational Analytics: College Selection Dashboard</h3>
-              <p class="projects__row-content-desc">
-                Built an interactive PowerBI/MicroStrategy dashboard to assist in college selection analytics. Integrated multi-source data including tuition costs, graduation rates, and employment outcomes to provide a 360-degree view for applicants.
-              </p>
-              <a href="https://github.com/Vaibhav0000" class="btn btn--med btn--theme dynamicBgClr" target="_blank">View Dashboard</a>
+              <h3 class="projects__row-content-title">College Selection Analytics Dashboard</h3>
+              <p class="projects__row-content-desc">Visualizing foundational metrics for academic selection processes using PowerBI and MicroStrategy.</p>
+              <a href="https://github.com/Vaibhav0000" class="btn btn--med btn--theme" target="_blank">Live Demo</a>
             </div>
           </div>
         </div>
       </div>
     </section>
 
+    <section id="contact" class="contact sec-pad">
+        </section>
+
     <footer class="main-footer">
-      <div class="main-container">
-        <div class="main-footer__upper">
-          <div class="main-footer__row main-footer__row-1">
-            <h2 class="heading heading-sm main-footer__heading-sm"><span>Social</span></h2>
-            <div class="main-footer__social-cont">
-              <a target="_blank" href="https://www.linkedin.com/in/vaibhavnangia08050805/"><img class="main-footer__icon" src="./assets/png/linkedin-ico.png" alt="icon" /></a>
-              <a target="_blank" href="https://github.com/Vaibhav0000"><img class="main-footer__icon" src="./assets/png/github-ico.png" alt="icon" /></a>
-            </div>
-          </div>
-          <div class="main-footer__row main-footer__row-2">
-            <h4 class="heading heading-sm text-lt">Vaibhav Nangia</h4>
-            <p class="main-footer__short-desc">Technical Business Analyst & Data Enthusiast.</p>
-          </div>
-        </div>
-        <div class="main-footer__lower">&copy; 2026 Vaibhav Nangia.</div>
-      </div>
-    </footer>
+        </footer>
     <script src="./index.js"></script>
   </body>
 </html>
