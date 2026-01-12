@@ -9,39 +9,83 @@
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap" rel="stylesheet" />
     
     <style>
-      /* PERFECT CENTERING AND CUSTOM THEME */
+      /* 1. FIXING THE LOGO ALIGNMENT & BACKGROUND */
+      .header__logo-img-cont {
+        background: transparent !important; /* Removes the blue/circle background */
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+
+      .header__logo-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+
+      /* 2. PINNING SOCIALS TO THE LEFT SIDE */
+      .home-hero__socials {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        display: flex;
+        flex-direction: column;
+        background: rgba(255, 255, 255, 0.1);
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 15px;
+        border: 1px solid #eee;
+        border-left: none;
+        z-index: 10;
+      }
+
+      .home-hero__social {
+        width: 5rem;
+        height: 5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.3s;
+      }
+
+      .home-hero__social:hover {
+        background: rgba(250, 207, 15, 0.2);
+      }
+
+      .home-hero__social-icon {
+        width: 2.5rem;
+      }
+
+      /* 3. HERO CONTENT CENTERING */
       .home-hero {
+        position: relative;
         background: linear-gradient(to right, rgba(30, 39, 46, 0.95), rgba(30, 39, 46, 0.95)), url("./assets/svg/common-bg.svg");
         background-position: center;
         display: flex;
         align-items: center;
         justify-content: center;
         min-height: 100vh;
+        padding: 0 10rem; /* Space for the left socials */
       }
 
       .home-hero__content {
         display: flex;
         flex-direction: column;
-        align-items: center; /* Centers items horizontally */
-        text-align: center;   /* Centers text */
+        align-items: center;
+        text-align: center;
         width: 100%;
-        max-width: 90rem;
+        max-width: 80rem;
       }
 
       .profile-img-hero {
-        width: 180px;
-        height: 180px;
+        width: 200px;
+        height: 200px;
         border-radius: 50%;
-        border: 5px solid #facf0f; /* Professional Gold Border */
-        margin-bottom: 2.5rem;
-        object-fit: cover;
-        display: block;
-      }
-
-      .header__logo-img {
-        border-radius: 50%;
-        width: 40px;
-        height: 40px;
+        border: 5px solid #facf0f;
+        margin-bottom: 3rem;
         object-fit: cover;
       }
 
@@ -53,25 +97,11 @@
         font-size: 1rem;
         font-weight: bold;
         margin-left: 10px;
-        vertical-align: middle;
       }
 
-      .skills__category-title {
-        font-weight: 700;
-        margin-top: 2.5rem;
-        color: #333;
-        text-transform: uppercase;
-        font-size: 1.4rem;
-        width: 100%;
-        border-bottom: 2px solid #facf0f;
-        padding-bottom: 5px;
-        margin-bottom: 15px;
-      }
-
-      .experience-item {
-        margin-bottom: 4rem;
-        text-align: left;
-      }
+      /* SKILLS & EXPERIENCE STYLING */
+      .experience-item { margin-bottom: 4rem; text-align: left; }
+      .skills__category-title { font-weight: 700; margin-top: 2rem; border-bottom: 2px solid #facf0f; padding-bottom: 5px; width: 100%; }
     </style>
   </head>
   <body>
@@ -79,7 +109,7 @@
       <div class="header__content">
         <div class="header__logo-container">
           <div class="header__logo-img-cont">
-            <img src="./assets/jpeg/vaibhav.image.png" alt="Logo" class="header__logo-img" />
+            <img src="./assets/jpeg/vaibhav-profile.png" alt="Logo" class="header__logo-img" />
           </div>
           <span class="header__logo-sub">Vaibhav Nangia <span class="pmp-badge">PMP®</span></span>
         </div>
@@ -88,7 +118,7 @@
             <li class="header__link-wrapper"><a href="#about" class="header__link">About</a></li>
             <li class="header__link-wrapper"><a href="#experience" class="header__link">Experience</a></li>
             <li class="header__link-wrapper"><a href="#projects" class="header__link">Projects</a></li>
-            <li class="header__link-wrapper"><a href="YOUR_RESUME_LINK_HERE" class="header__link" style="color: #facf0f; font-weight: bold;">Resume</a></li>
+            <li class="header__link-wrapper"><a href="#" class="header__link" style="color: #facf0f; font-weight: bold;">Resume</a></li>
             <li class="header__link-wrapper"><a href="#contact" class="header__link">Contact</a></li>
           </ul>
         </div>
@@ -96,24 +126,6 @@
     </header>
 
     <section class="home-hero">
-      <div class="home-hero__content">
-        <img src="./assets/jpeg/vaibhav.image.png" alt="Vaibhav Nangia" class="profile-img-hero" />
-        
-        <h1 class="heading-primary">VAIBHAV NANGIA, PMP®</h1>
-        
-        <div class="home-hero__info">
-          <p class="text-primary">
-            A PMP® Certified Technical Business Analyst & Data Analyst with 4+ years of experience. 
-            Expert in bridging the gap between complex engineering and business strategy to deliver 
-            high-impact solutions in Healthcare and Education.
-          </p>
-        </div>
-
-        <div class="home-hero__cta">
-          <a href="#projects" class="btn btn--bg">View My Projects</a>
-        </div>
-      </div>
-
       <div class="home-hero__socials">
         <div class="home-hero__social">
           <a href="https://www.linkedin.com/in/vaibhavnangia08050805/" target="_blank" class="home-hero__social-icon-link">
@@ -127,8 +139,22 @@
         </div>
         <div class="home-hero__social">
           <a href="mailto:nangiavaibhav9@gmail.com" class="home-hero__social-icon-link">
-            <img src="https://img.icons8.com/ios-filled/50/ffffff/mail.png" alt="Email" class="home-hero__social-icon" style="width: 25px;"/>
+            <img src="https://img.icons8.com/ios-filled/50/ffffff/mail.png" alt="Email" class="home-hero__social-icon" />
           </a>
+        </div>
+      </div>
+
+      <div class="home-hero__content">
+        <img src="./assets/jpeg/vaibhav-profile.png" alt="Vaibhav Nangia" class="profile-img-hero" />
+        <h1 class="heading-primary">VAIBHAV NANGIA, PMP®</h1>
+        <div class="home-hero__info">
+          <p class="text-primary">
+            A PMP® Certified Technical Business Analyst & Data Analyst with 4+ years of experience. 
+            Bridging complex technical engineering and business strategy to deliver high-impact solutions.
+          </p>
+        </div>
+        <div class="home-hero__cta">
+          <a href="#projects" class="btn btn--bg">View My Projects</a>
         </div>
       </div>
     </section>
@@ -141,17 +167,15 @@
             <h3>Technical Business Analyst</h3>
             <p style="color: #666; font-weight: 600;">Healthcare Sector | Drug Usage Analysis</p>
             <ul style="margin-top: 15px; line-height: 1.8;">
-              <li>Utilized SQL and Alteryx to analyze large-scale healthcare datasets, identifying cost-saving opportunities in drug utilization.</li>
-              <li>Translated complex clinical data into actionable insights for stakeholders, improving operational efficiency.</li>
-              <li>Applied PMP® methodologies to manage project timelines and cross-functional team communication.</li>
+              <li>Utilized SQL and Alteryx to identify cost-saving opportunities in pharmaceutical utilization.</li>
+              <li>Applied PMP® methodologies to lead cross-functional clinical data projects.</li>
             </ul>
           </div>
           <div class="experience-item">
             <h3>Analytics Lead</h3>
-            <p style="color: #666; font-weight: 600;">Foundational Analytics | College Selection Dashboard</p>
+            <p style="color: #666; font-weight: 600;">Education Sector | College Selection Dashboard</p>
             <ul style="margin-top: 15px; line-height: 1.8;">
-              <li>Developed end-to-end dashboards in PowerBI and MicroStrategy to visualize academic and financial KPIs.</li>
-              <li>Streamlined data collection processes from multiple sources to ensure 100% data accuracy for decision-makers.</li>
+              <li>Engineered interactive dashboards in PowerBI/MicroStrategy for executive-level academic KPIs.</li>
             </ul>
           </div>
         </div>
@@ -160,50 +184,19 @@
 
     <section id="about" class="about sec-pad">
       <div class="main-container">
-        <h2 class="heading heading-sec"><span class="heading-sec__main">Skills & Expertise</span></h2>
+        <h2 class="heading heading-sec"><span class="heading-sec__main">Expertise</span></h2>
         <div class="about__content">
           <div class="about__content-skills">
-            <div class="skills__category-title">Technical Expertise</div>
+            <div class="skills__category-title">Technical</div>
             <div class="skills">
-              <div class="skills__skill">PowerBI</div><div class="skills__skill">MicroStrategy</div>
-              <div class="skills__skill">Alteryx</div><div class="skills__skill">SQL</div>
-              <div class="skills__skill">Python</div><div class="skills__skill">UiPath (RPA)</div>
-              <div class="skills__skill">Tableau</div><div class="skills__skill">Excel (VBA)</div>
+              <div class="skills__skill">PowerBI</div><div class="skills__skill">Alteryx</div>
+              <div class="skills__skill">SQL</div><div class="skills__skill">Python</div>
+              <div class="skills__skill">MicroStrategy</div><div class="skills__skill">UiPath</div>
             </div>
-
-            <div class="skills__category-title">Behavioral & Leadership</div>
+            <div class="skills__category-title">Leadership</div>
             <div class="skills">
-              <div class="skills__skill">Stakeholder Management</div><div class="skills__skill">Agile / Scrum</div>
-              <div class="skills__skill">Project Leadership</div><div class="skills__skill">Strategic Planning</div>
-              <div class="skills__skill">Risk Mitigation</div><div class="skills__skill">Business Requirements (BRD)</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="projects" class="projects sec-pad" style="background: #f7f7f7;">
-      <div class="main-container">
-        <h2 class="heading heading-sec"><span class="heading-sec__main">Projects</span></h2>
-        <div class="projects__content">
-          <div class="projects__row">
-            <div class="projects__row-img-cont">
-              <img src="./assets/jpeg/healthcare-project.jpg" alt="Healthcare Project" class="projects__row-img" />
-            </div>
-            <div class="projects__row-content">
-              <h3 class="projects__row-content-title">Healthcare Drug Usage Analysis</h3>
-              <p class="projects__row-content-desc">Analyzing pharmaceutical data to find trends and reduce waste using SQL and Alteryx.</p>
-              <a href="https://github.com/Vaibhav0000" class="btn btn--med btn--theme" target="_blank">View Repo</a>
-            </div>
-          </div>
-          <div class="projects__row">
-            <div class="projects__row-img-cont">
-              <img src="./assets/jpeg/college-dashboard.jpg" alt="College Dashboard" class="projects__row-img" />
-            </div>
-            <div class="projects__row-content">
-              <h3 class="projects__row-content-title">College Selection Dashboard</h3>
-              <p class="projects__row-content-desc">Visualizing academic data in PowerBI to simplify the college selection process.</p>
-              <a href="https://github.com/Vaibhav0000" class="btn btn--med btn--theme" target="_blank">View Dashboard</a>
+              <div class="skills__skill">PMP® Certified</div><div class="skills__skill">Agile</div>
+              <div class="skills__skill">Stakeholder Management</div><div class="skills__skill">Risk Mitigation</div>
             </div>
           </div>
         </div>
@@ -213,28 +206,13 @@
     <section id="contact" class="contact sec-pad dynamicBg">
       <div class="main-container">
         <h2 class="heading heading-sec"><span class="heading-sec__main heading-sec__main--lt">Contact</span></h2>
-        <div class="contact__form-container">
-          <p style="text-align: center; color: white; margin-bottom: 20px;">Ready to start a project? Email me at <strong>nangiavaibhav9@gmail.com</strong></p>
-        </div>
+        <p style="text-align: center; color: white;">Email: <strong>nangiavaibhav9@gmail.com</strong></p>
       </div>
     </section>
 
     <footer class="main-footer">
       <div class="main-container">
-        <div class="main-footer__upper">
-          <div class="main-footer__row main-footer__row-1">
-            <h2 class="heading heading-sm main-footer__heading-sm"><span>Social</span></h2>
-            <div class="main-footer__social-cont">
-              <a target="_blank" href="https://www.linkedin.com/in/vaibhavnangia08050805/"><img class="main-footer__icon" src="./assets/png/linkedin-ico.png" alt="icon" /></a>
-              <a target="_blank" href="https://github.com/Vaibhav0000"><img class="main-footer__icon" src="./assets/png/github-ico.png" alt="icon" /></a>
-            </div>
-          </div>
-          <div class="main-footer__row main-footer__row-2">
-            <h4 class="heading heading-sm text-lt">Vaibhav Nangia, PMP®</h4>
-            <p class="main-footer__short-desc">Technical Business Analyst specializing in data-driven growth.</p>
-          </div>
-        </div>
-        <div class="main-footer__lower">&copy; 2026 Vaibhav Nangia. All rights reserved.</div>
+        <div class="main-footer__lower">&copy; 2026 Vaibhav Nangia. PMP®</div>
       </div>
     </footer>
     <script src="./index.js"></script>
