@@ -27,14 +27,14 @@
       }
       .header__logo-img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
 
-      /* --- HERO SECTION: CENTERED LAYOUT --- */
+      /* --- HERO SECTION --- */
       .home-hero {
         background: linear-gradient(to right, rgba(30, 39, 46, 0.98), rgba(30, 39, 46, 0.98)), url("./assets/svg/common-bg.svg");
         min-height: 100vh;
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 6rem 2rem 2rem 2rem; /* Top padding accounts for header */
+        padding: 6rem 2rem 2rem 2rem;
         position: relative;
         text-align: center;
       }
@@ -49,12 +49,11 @@
         z-index: 10;
       }
 
-      /* RECTANGULAR IMAGE BOX (CENTERED) */
       .hero-image-box {
         width: 280px;
         height: 280px;
         border: 6px solid #facf0f;
-        border-radius: 20px; /* Rounded rectangle */
+        border-radius: 20px;
         overflow: hidden;
         box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         margin-bottom: 2.5rem;
@@ -65,7 +64,7 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
-        object-position: center 10%; /* Ensures face is visible */
+        object-position: center 10%;
       }
 
       .heading-primary {
@@ -98,32 +97,37 @@
         display: inline-block;
       }
 
-      /* HERO BUTTONS */
+      /* UNIFORM BUTTONS FIX */
       .hero-btns {
         display: flex;
         justify-content: center;
         gap: 20px;
       }
       
-      .btn--white {
-        background: #fff;
-        color: #333;
+      /* Shared style for both buttons to ensure uniformity */
+      .hero-btn-common {
+        min-width: 280px; /* Forces equal width */
         font-weight: 700;
         text-transform: uppercase;
-        padding: 1.5rem 3rem;
+        padding: 1.5rem 0; /* Vertical padding */
         border-radius: 5px;
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
         transition: transform 0.3s;
         border: 2px solid transparent;
         letter-spacing: 1px;
         display: inline-block;
-        font-size: 1.4rem;
+        font-size: 1.2rem;
         cursor: pointer;
         text-decoration: none;
+        text-align: center;
       }
-      .btn--white:hover { transform: translateY(-3px); }
 
-      /* --- FLOATING SOCIALS (PINNED LEFT) --- */
+      .btn--white { background: #fff; color: #333; }
+      .btn--bg { background: #facf0f; color: #333; } /* Assuming yellow from your theme */
+      
+      .hero-btn-common:hover { transform: translateY(-3px); }
+
+      /* --- FLOATING SOCIALS --- */
       .home-hero__socials {
         position: fixed;
         top: 50%;
@@ -148,7 +152,34 @@
       .home-hero__social:hover { background: #f4f4f4; }
       .home-hero__social img { width: 2.2rem; }
 
-      /* --- EXPERIENCE & CARDS --- */
+      /* --- ABOUT & SKILLS --- */
+      /* Stacked Layout Fix */
+      .skills-container {
+        display: flex;
+        flex-direction: column;
+        gap: 40px; /* Space between Tech and Non-Tech */
+        margin-top: 3rem;
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .skills-column h3 {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+        border-bottom: 3px solid #facf0f;
+        display: inline-block;
+        padding-bottom: 5px;
+        width: 100%;
+        text-align: left;
+      }
+      /* Center alignment for skill tags */
+      .skills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+      }
+
+      /* --- EXPERIENCE --- */
       .exp-container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
       .exp-card { 
         margin-bottom: 3.5rem; 
@@ -160,22 +191,7 @@
       .exp-company { font-size: 1.4rem; font-weight: 700; color: #facf0f; text-transform: uppercase; margin-bottom: 1rem; letter-spacing: 0.5px; }
       .exp-summary-text { font-size: 1.5rem; line-height: 1.7; color: #444; }
 
-      /* --- SKILLS GRID --- */
-      .skills-container {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 40px;
-        margin-top: 3rem;
-      }
-      .skills-column h3 {
-        font-size: 1.8rem;
-        margin-bottom: 1.5rem;
-        border-bottom: 3px solid #facf0f;
-        display: inline-block;
-        padding-bottom: 5px;
-      }
-
-      /* --- PROJECTS GRID --- */
+      /* --- PROJECTS --- */
       .projects-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -189,14 +205,32 @@
         box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         border-radius: 8px;
         border-top: 5px solid #facf0f;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      /* --- CONTACT STRIP FIX --- */
+      .contact-strip {
+        background: #2c3e50; /* Professional Dark Blue/Grey */
+        padding: 4rem 2rem; /* Reduced padding for strip effect */
+        text-align: center;
+        color: white;
+      }
+      .contact-statement {
+        font-size: 1.8rem;
+        max-width: 800px;
+        margin: 0 auto 3rem auto;
+        line-height: 1.6;
+        font-weight: 300;
       }
 
       /* RESPONSIVE */
       @media only screen and (max-width: 768px) {
         .hero-btns { flex-direction: column; width: 100%; }
-        .btn { width: 100%; text-align: center; }
-        .skills-container, .projects-grid { grid-template-columns: 1fr; }
-        .home-hero__socials { display: none; } /* Hide floating bar on mobile */
+        .hero-btn-common { width: 100%; }
+        .projects-grid { grid-template-columns: 1fr; }
+        .home-hero__socials { display: none; }
         .heading-primary { font-size: 2.5rem; }
       }
     </style>
@@ -242,8 +276,8 @@
         </p>
 
         <div class="hero-btns">
-          <a href="#projects" class="btn btn--bg">View My Projects</a>
-          <a href="#experience" class="btn btn--white">View My Experience</a>
+          <a href="#projects" class="hero-btn-common btn--bg">View My Projects</a>
+          <a href="#experience" class="hero-btn-common btn--white">View My Experience</a>
         </div>
       </div>
     </section>
@@ -252,8 +286,8 @@
       <div class="main-container">
         <h2 class="heading heading-sec"><span class="heading-sec__main">About Me</span></h2>
         <div class="about__content">
-          <p class="about__content-details-para" style="text-align: center; max-width: 800px; margin: 0 auto;">
-            I am a result-oriented professional specializing in translating complex datasets into actionable strategic narratives. With a PMP® certification and deep technical expertise, I focus on optimizing operational efficiency and driving data-led decision-making.
+          <p class="about__content-details-para" style="text-align: center; max-width: 900px; margin: 0 auto 3rem auto; line-height: 1.8;">
+            I am a result-oriented Business Data Analyst specializing in translating complex datasets into actionable strategic narratives. With a PMP® certification and deep technical expertise, I focus on optimizing operational efficiency and driving data-led decision-making. My background spans Healthcare, Education, and E-commerce, where I have consistently reduced costs, improved data accuracy, and streamlined reporting workflows. I excel at leading cross-functional teams and implementing agile methodologies to deliver projects on time and within budget.
           </p>
 
           <div class="skills-container">
@@ -270,6 +304,7 @@
                 <div class="skills__skill">UiPath (RPA)</div>
               </div>
             </div>
+            
             <div class="skills-column">
               <h3>Non-Technical Skills</h3>
               <div class="skills">
@@ -279,6 +314,7 @@
                 <div class="skills__skill">Strategic Planning</div>
                 <div class="skills__skill">Business Requirements</div>
                 <div class="skills__skill">Change Management</div>
+                <div class="skills__skill">Cross-functional Leadership</div>
               </div>
             </div>
           </div>
@@ -337,24 +373,28 @@
         <div class="projects-grid">
           
           <div class="project-card">
-            <h3 class="exp-title">Healthcare Drug Usage Analysis</h3>
-            <p class="exp-company">Technical Business Analyst | SQL & Alteryx</p>
-            <p class="exp-summary-text" style="margin-top: 1rem;">
-              Conducted deep-dive analysis into drug utilization patterns using SQL and Alteryx. Developed insights to improve supply chain efficiency by identifying trends in prescription data and cost-per-unit variances.
-            </p>
-            <div style="margin-top: 1.5rem;">
+            <div>
+              <h3 class="exp-title">Healthcare Drug Usage Analysis</h3>
+              <p class="exp-company">Technical Business Analyst | SQL & Alteryx</p>
+              <p class="exp-summary-text" style="margin-top: 1rem;">
+                Conducted deep-dive analysis into drug utilization patterns using SQL and Alteryx. Developed insights to improve supply chain efficiency by identifying trends in prescription data and cost-per-unit variances.
+              </p>
+            </div>
+            <div style="margin-top: 2rem;">
                <a href="https://github.com/Vaibhav0000" class="btn btn--med btn--theme" target="_blank">View on GitHub</a>
             </div>
           </div>
 
           <div class="project-card">
-            <h3 class="exp-title">College Selection Dashboard</h3>
-            <p class="exp-company">Analytics Lead | PowerBI & MicroStrategy</p>
-            <p class="exp-summary-text" style="margin-top: 1rem;">
-              Built an interactive dashboard to assist in college selection analytics. Integrated multi-source data including tuition costs and graduation rates to provide a 360-degree view for stakeholders.
-            </p>
-            <div style="margin-top: 1.5rem;">
-               <a href="https://github.com/Vaibhav0000" class="btn btn--med btn--theme" target="_blank">View Dashboard</a>
+            <div>
+              <h3 class="exp-title">College Selection Dashboard</h3>
+              <p class="exp-company">Analytics Lead | PowerBI & MicroStrategy</p>
+              <p class="exp-summary-text" style="margin-top: 1rem;">
+                Built an interactive dashboard to assist in college selection analytics. Integrated multi-source data including tuition costs and graduation rates to provide a 360-degree view for stakeholders.
+              </p>
+            </div>
+            <div style="margin-top: 2rem;">
+               <a href="https://github.com/Vaibhav0000" class="btn btn--med btn--theme" target="_blank">View on GitHub</a>
             </div>
           </div>
 
@@ -362,24 +402,26 @@
       </div>
     </section>
 
-    <section id="contact" class="contact sec-pad dynamicBg">
+    <section id="contact" class="contact-strip">
       <div class="main-container">
-        <h2 class="heading heading-sec"><span class="heading-sec__main heading-sec__main--lt">Contact Me</span></h2>
-        <div style="text-align: center; color: white;">
-          <p style="font-size: 2.2rem; margin-bottom: 2rem; font-weight: 600;">Let's Connect!</p>
-          
-          <div style="margin-bottom: 1.5rem;">
-            <p style="font-size: 1.8rem; margin-bottom: 0.5rem;">Email</p>
-            <a href="mailto:nangiavaibhav9@gmail.com" style="color: #facf0f; font-size: 2rem; font-weight: 700; text-decoration: none;">nangiavaibhav9@gmail.com</a>
+        <h2 class="heading heading-sec"><span class="heading-sec__main heading-sec__main--lt">Why Hire Me?</span></h2>
+        
+        <p class="contact-statement">
+          I bring a unique blend of technical data proficiency and strategic business acumen. My proven track record in reducing costs, improving data accuracy, and leading cross-functional teams makes me an immediate asset to drive your organization's data initiatives forward.
+        </p>
+
+        <div style="border-top: 1px solid rgba(255,255,255,0.2); padding-top: 2rem; display: flex; justify-content: center; gap: 4rem; flex-wrap: wrap;">
+          <div>
+            <p style="font-size: 1.4rem; margin-bottom: 0.5rem; color: #facf0f;">EMAIL</p>
+            <a href="mailto:nangiavaibhav9@gmail.com" style="color: #fff; font-size: 1.6rem; text-decoration: none;">nangiavaibhav9@gmail.com</a>
           </div>
 
           <div>
-            <p style="font-size: 1.8rem; margin-bottom: 0.5rem;">LinkedIn</p>
-            <a href="https://linkedin.com/in/vaibhavnangia08050805/" target="_blank" style="color: #facf0f; font-size: 2rem; font-weight: 700; text-decoration: none;">
+            <p style="font-size: 1.4rem; margin-bottom: 0.5rem; color: #facf0f;">LINKEDIN</p>
+            <a href="https://linkedin.com/in/vaibhavnangia08050805/" target="_blank" style="color: #fff; font-size: 1.6rem; text-decoration: none;">
               in/vaibhavnangia08050805
             </a>
           </div>
-
         </div>
       </div>
     </section>
