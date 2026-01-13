@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap" rel="stylesheet" />
     
     <style>
-      /* --- HEADER & NAVIGATION --- */
+      /* --- HEADER FIX --- */
       .header__logo-img-cont {
         background: #fff !important; 
         width: 45px;
@@ -19,36 +19,79 @@
         justify-content: center;
         border-radius: 50%;
         overflow: hidden;
-        border: 1px solid #eee;
       }
-      .header__logo-img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center 10%; /* Ensures face is visible in logo */
-      }
+      .header__logo-img { width: 100%; height: 100%; object-fit: cover; }
 
-      /* --- HERO & FACE VISIBILITY FIX --- */
+      /* --- HERO SECTION: SIDE-BY-SIDE LAYOUT --- */
       .home-hero {
-        background: linear-gradient(to right, rgba(30, 39, 46, 0.95), rgba(30, 39, 46, 0.95)), url("./assets/svg/common-bg.svg");
-        min-height: 100vh;
+        background: linear-gradient(to right, rgba(30, 39, 46, 0.98), rgba(30, 39, 46, 0.98)), url("./assets/svg/common-bg.svg");
+        min-height: 90vh;
         display: flex;
         align-items: center;
         justify-content: center;
+        padding: 5rem 2rem;
         position: relative;
       }
-      .profile-img-hero {
-        width: 220px;
-        height: 220px;
-        border-radius: 50%;
-        border: 6px solid #facf0f;
-        margin-bottom: 2rem;
-        object-fit: cover;
-        object-position: center 5%; /* FIX: Moves the crop down to show your full head */
-        background: #fff;
+
+      .hero-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 1200px;
+        width: 100%;
+        gap: 6rem;
       }
 
-      /* --- FLOATING SOCIALS FIX --- */
+      /* RECTANGULAR IMAGE BOX (LEFT) */
+      .hero-image-box {
+        flex: 1;
+        max-width: 400px;
+        height: 500px;
+        border: 8px solid #facf0f;
+        border-radius: 15px; /* Slight roundness for a modern look */
+        overflow: hidden;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+      }
+
+      .hero-image-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center 10%; /* Ensures face is always visible */
+      }
+
+      /* CONTENT COLUMN (RIGHT) */
+      .hero-text-box {
+        flex: 1.5;
+        text-align: left;
+        color: #fff;
+      }
+
+      .heading-primary {
+        text-align: left !important;
+        font-size: 4.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .text-primary {
+        text-align: left !important;
+        font-size: 2rem;
+        line-height: 1.6;
+        margin-bottom: 3rem;
+        color: #eee;
+      }
+
+      .pmp-badge {
+        background: #facf0f;
+        color: #000;
+        padding: 4px 12px;
+        border-radius: 4px;
+        font-size: 1.2rem;
+        font-weight: 900;
+        vertical-align: middle;
+      }
+
+      /* --- FLOATING SOCIALS (PINNED LEFT) --- */
       .home-hero__socials {
         position: fixed;
         top: 50%;
@@ -59,7 +102,6 @@
         z-index: 100;
         background: #fff;
         box-shadow: 2px 0 10px rgba(0,0,0,0.2);
-        border-radius: 0 5px 5px 0;
       }
       .home-hero__social {
         width: 4rem;
@@ -70,16 +112,16 @@
         border-bottom: 1px solid #eee;
       }
 
-      /* --- WORK EXPERIENCE STYLING --- */
+      /* --- EXPERIENCE SECTION --- */
       .exp-container { max-width: 1100px; margin: 0 auto; padding: 2rem; }
       .exp-card { margin-bottom: 4rem; border-left: 4px solid #facf0f; padding-left: 2rem; }
-      .exp-title { font-size: 2.2rem; font-weight: 800; color: #111; margin-bottom: 0.5rem; }
+      .exp-title { font-size: 2.2rem; font-weight: 800; color: #111; }
       .exp-company { font-size: 1.5rem; font-weight: 700; color: #facf0f; text-transform: uppercase; margin-bottom: 1rem; }
-      .exp-summary-text { font-size: 1.5rem; line-height: 1.7; color: #333; max-width: 900px; }
 
-      .pmp-badge { background: #facf0f; color: #000; padding: 2px 8px; border-radius: 4px; font-weight: bold; margin-left: 10px; }
-
-      @media only screen and (max-width: 600px) {
+      /* MOBILE RESPONSIVENESS */
+      @media only screen and (max-width: 900px) {
+        .hero-container { flex-direction: column; text-align: center; gap: 3rem; }
+        .hero-text-box, .heading-primary, .text-primary { text-align: center !important; }
         .home-hero__socials { display: none; }
       }
     </style>
@@ -95,7 +137,6 @@
         </div>
         <div class="header__main">
           <ul class="header__links">
-            <li class="header__link-wrapper"><a href="#about" class="header__link">About</a></li>
             <li class="header__link-wrapper"><a href="#experience" class="header__link">Experience</a></li>
             <li class="header__link-wrapper"><a href="#projects" class="header__link">Projects</a></li>
             <li class="header__link-wrapper"><a href="#" class="header__link" style="color: #facf0f; font-weight: bold;">Resume</a></li>
@@ -112,99 +153,43 @@
         <div class="home-hero__social"><a href="mailto:nangiavaibhav9@gmail.com"><img src="https://img.icons8.com/ios-filled/50/000000/mail.png" style="width:2rem;"/></a></div>
       </div>
 
-      <div class="home-hero__content">
-        <img src="./assets/jpeg/vaibhav.image.png" alt="Vaibhav" class="profile-img-hero" />
-        <h1 class="heading-primary">VAIBHAV NANGIA, PMP®</h1>
-        <div class="home-hero__info">
-          <p class="text-primary">A PMP® Certified Business Data Analyst with 4+ years of experience. Expert in bridging complex technical engineering and business strategy to deliver high-impact solutions.</p>
+      <div class="hero-container">
+        <div class="hero-image-box">
+          <img src="./assets/jpeg/vaibhav.image.png" alt="Vaibhav Nangia" />
         </div>
-        <div class="home-hero__cta"><a href="#experience" class="btn btn--bg">View My Experience</a></div>
-      </div>
-    </section>
 
-    <section id="about" class="about sec-pad">
-      <div class="main-container">
-        <h2 class="heading heading-sec"><span class="heading-sec__main">About Me</span></h2>
-        <div class="about__content">
-          <div class="about__content-main">
-            <p class="about__content-details-para">I am a result-oriented professional specializing in business data analysis and technical project management. With a strong foundation in the PMP® framework, I excel at turning massive datasets into clear, strategic narratives that improve operational efficiency.</p>
-          </div>
-          <div class="about__content-skills">
-            <div class="skills"><div class="skills__skill">PowerBI</div><div class="skills__skill">SQL</div><div class="skills__skill">Python</div><div class="skills__skill">Alteryx</div><div class="skills__skill">Tableau</div><div class="skills__skill">Snowflake</div><div class="skills__skill">Agile</div></div>
+        <div class="hero-text-box">
+          <h1 class="heading-primary">VAIBHAV NANGIA <span class="pmp-badge">PMP®</span></h1>
+          <p class="text-primary">
+            <strong>Business Data Analyst</strong> with 4+ years of experience. <br><br>
+            I specialize in bridging the gap between complex technical engineering and business strategy 
+            to deliver high-impact data solutions. My focus is on turning raw data into strategic 
+            narratives that drive operational efficiency.
+          </p>
+          <div class="home-hero__cta">
+            <a href="#experience" class="btn btn--bg">View Experience</a>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="experience" class="sec-pad" style="background: #fdfdfd;">
+    <section id="experience" class="sec-pad">
       <div class="main-container">
-        <h2 class="heading heading-sec"><span class="heading-sec__main">Work Experience</span></h2>
+        <h2 class="heading heading-sec"><span class="heading-sec__main">Experience</span></h2>
         <div class="exp-container">
-          
           <div class="exp-card">
             <div class="exp-title">Healthcare Data Analyst</div><div class="exp-company">IBM</div>
             <p class="exp-summary-text">Supported the One Person One Record (OPOR) initiative for Oracle and Nova Scotia Health by leading data migration and system modernization efforts for large-scale healthcare datasets.</p>
           </div>
-
           <div class="exp-card">
             <div class="exp-title">Analytics Consultant</div><div class="exp-company">Consulting by CAAS</div>
             <p class="exp-summary-text">Transformed raw Census Canada demographic data into meaningful stories through advanced statistical modeling and visualization to support regional planning.</p>
           </div>
-
-          <div class="exp-card">
-            <div class="exp-title">Business Analyst (E-Commerce)</div><div class="exp-company">Unbound Merino</div>
-            <p class="exp-summary-text">Optimized global inventory and sales patterns to reduce holding costs by 18%, while building dashboards that cut return cycles by 25% and boosted stock turnover by 20%.</p>
           </div>
-
-          <div class="exp-card">
-            <div class="exp-title">Analyst - Researcher & Innovation</div><div class="exp-company">George Brown College</div>
-            <p class="exp-summary-text">Resolved 700+ dataset inconsistencies using Snowflake and Oracle, while reengineering report processes to reduce generation time by 50% and resource utilization by 65%.</p>
-          </div>
-
-          <div class="exp-card">
-            <div class="exp-title">Business Analyst</div><div class="exp-company">PointClickCare</div>
-            <p class="exp-summary-text">Reduced reporting latency by 40% through DBT model development and achieved a 25% productivity gain by optimizing cross-functional workflows in JIRA and Confluence.</p>
-          </div>
-
-          <div class="exp-card">
-            <div class="exp-title">Business Data Analyst</div><div class="exp-company">InfoCepts</div>
-            <p class="exp-summary-text">Improved reporting performance by 60% using Tableau and Power BI dashboards, while earning the Best Mentor Award for guiding Agile teams through complex SAP integrations.</p>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <section id="projects" class="projects sec-pad" style="background: #f7f7f7;">
-      <div class="main-container">
-        <h2 class="heading heading-sec"><span class="heading-sec__main">Projects</span></h2>
-        <div class="projects__content">
-          <div class="projects__row">
-            <div class="projects__row-img-cont"><img src="./assets/jpeg/healthcare-project.jpg" class="projects__row-img" /></div>
-            <div class="projects__row-content">
-              <h3 class="projects__row-content-title">Healthcare Drug Usage Analysis</h3>
-              <p class="projects__row-content-desc">Analyzing pharmaceutical data to identify cost-saving trends and procurement anomalies using SQL and Alteryx.</p>
-              <a href="https://github.com/Vaibhav0000" class="btn btn--med btn--theme" target="_blank">View Project</a>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
 
     <section id="contact" class="contact sec-pad dynamicBg">
       <div class="main-container">
         <h2 class="heading heading-sec"><span class="heading-sec__main heading-sec__main--lt">Contact Me</span></h2>
-        <div style="text-align: center; color: white;">
-          <p style="font-size: 2rem;"><strong>Email:</strong> nangiavaibhav9@gmail.com</p>
-        </div>
-      </div>
-    </section>
-
-    <footer class="main-footer">
-      <div class="main-container">
-        <div class="main-footer__lower">&copy; 2026 Vaibhav Nangia. PMP®</div>
-      </div>
-    </footer>
-    <script src="./index.js"></script>
-  </body>
-</html>
+        <p style="text-align
