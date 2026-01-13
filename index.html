@@ -9,58 +9,195 @@
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap" rel="stylesheet" />
     
     <style>
-      /* --- HEADER --- */
+      /* --- GLOBAL RESETS & BASICS --- */
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      
+      /* --- HEADER & NAVIGATION --- */
       .header__logo-img-cont {
-        background: #fff !important; width: 45px; height: 45px;
-        display: flex; align-items: center; justify-content: center;
-        border-radius: 50%; overflow: hidden;
+        background: #fff !important; 
+        width: 45px;
+        height: 45px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 1px solid #eee;
       }
-      .header__logo-img { width: 100%; height: 100%; object-fit: cover; }
+      .header__logo-img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
 
-      /* --- HERO SECTION: SIDE-BY-SIDE --- */
+      /* --- HERO SECTION: CENTERED LAYOUT --- */
       .home-hero {
         background: linear-gradient(to right, rgba(30, 39, 46, 0.98), rgba(30, 39, 46, 0.98)), url("./assets/svg/common-bg.svg");
-        min-height: 85vh; display: flex; align-items: center; justify-content: center;
-        padding: 5rem 2rem; position: relative;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 6rem 2rem 2rem 2rem; /* Top padding accounts for header */
+        position: relative;
+        text-align: center;
       }
+
       .hero-container {
-        display: flex; align-items: center; justify-content: center;
-        max-width: 1200px; width: 100%; gap: 6rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        max-width: 900px;
+        width: 100%;
+        z-index: 10;
       }
+
+      /* RECTANGULAR IMAGE BOX (CENTERED) */
       .hero-image-box {
-        flex: 1; max-width: 380px; height: 480px;
-        border: 8px solid #facf0f; border-radius: 12px;
-        overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        width: 280px;
+        height: 280px;
+        border: 6px solid #facf0f;
+        border-radius: 20px; /* Rounded rectangle */
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        margin-bottom: 2.5rem;
+        background: #fff;
       }
+
       .hero-image-box img {
-        width: 100%; height: 100%; object-fit: cover;
-        object-position: center 5%; /* Fixes the head cut-off */
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center 10%; /* Ensures face is visible */
       }
-      .hero-text-box { flex: 1.5; text-align: left; color: #fff; }
-      .heading-primary { text-align: left !important; font-size: 4rem; margin-bottom: 1.5rem; }
-      .text-primary { font-size: 1.8rem; line-height: 1.6; color: #eee; margin-bottom: 3rem; }
 
-      /* --- FLOATING SOCIALS --- */
+      .heading-primary {
+        color: #fff;
+        font-size: 3.5rem;
+        margin-bottom: 1.5rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .text-primary {
+        color: #eee;
+        font-size: 1.6rem;
+        line-height: 1.6;
+        margin-bottom: 3rem;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .pmp-badge {
+        background: #facf0f;
+        color: #000;
+        padding: 2px 10px;
+        border-radius: 4px;
+        font-size: 1rem;
+        font-weight: 800;
+        vertical-align: middle;
+        margin-left: 10px;
+        display: inline-block;
+      }
+
+      /* HERO BUTTONS */
+      .hero-btns {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+      }
+      
+      .btn--white {
+        background: #fff;
+        color: #333;
+        font-weight: 700;
+        text-transform: uppercase;
+        padding: 1.5rem 3rem;
+        border-radius: 5px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        transition: transform 0.3s;
+        border: 2px solid transparent;
+        letter-spacing: 1px;
+        display: inline-block;
+        font-size: 1.4rem;
+        cursor: pointer;
+        text-decoration: none;
+      }
+      .btn--white:hover { transform: translateY(-3px); }
+
+      /* --- FLOATING SOCIALS (PINNED LEFT) --- */
       .home-hero__socials {
-        position: fixed; top: 50%; left: 0; transform: translateY(-50%);
-        display: flex; flex-direction: column; z-index: 100;
-        background: #fff; box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+        position: fixed;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        display: flex;
+        flex-direction: column;
+        z-index: 100;
+        background: #fff;
+        box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+        border-radius: 0 5px 5px 0;
       }
-      .home-hero__social { width: 4rem; height: 4rem; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid #eee; }
+      .home-hero__social {
+        width: 4.5rem;
+        height: 4.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-bottom: 1px solid #eee;
+        transition: background 0.2s;
+      }
+      .home-hero__social:hover { background: #f4f4f4; }
+      .home-hero__social img { width: 2.2rem; }
 
-      /* --- EXPERIENCE & SECTIONS --- */
-      .exp-container { max-width: 1100px; margin: 0 auto; padding: 2rem; }
-      .exp-card { margin-bottom: 4rem; border-left: 4px solid #facf0f; padding-left: 2rem; }
-      .exp-title { font-size: 2.2rem; font-weight: 800; color: #111; margin-bottom: 0.5rem; }
-      .exp-company { font-size: 1.4rem; font-weight: 700; color: #facf0f; text-transform: uppercase; margin-bottom: 1rem; }
+      /* --- EXPERIENCE & CARDS --- */
+      .exp-container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
+      .exp-card { 
+        margin-bottom: 3.5rem; 
+        border-left: 5px solid #facf0f; 
+        padding-left: 2.5rem; 
+        background: #fff;
+      }
+      .exp-title { font-size: 2rem; font-weight: 800; color: #111; margin-bottom: 0.5rem; }
+      .exp-company { font-size: 1.4rem; font-weight: 700; color: #facf0f; text-transform: uppercase; margin-bottom: 1rem; letter-spacing: 0.5px; }
       .exp-summary-text { font-size: 1.5rem; line-height: 1.7; color: #444; }
-      .pmp-badge { background: #facf0f; color: #000; padding: 2px 8px; border-radius: 4px; font-weight: bold; margin-left: 10px; }
 
-      @media only screen and (max-width: 900px) {
-        .hero-container { flex-direction: column; text-align: center; }
-        .hero-text-box { text-align: center; }
-        .heading-primary { text-align: center !important; }
-        .home-hero__socials { display: none; }
+      /* --- SKILLS GRID --- */
+      .skills-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        margin-top: 3rem;
+      }
+      .skills-column h3 {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+        border-bottom: 3px solid #facf0f;
+        display: inline-block;
+        padding-bottom: 5px;
+      }
+
+      /* --- PROJECTS GRID --- */
+      .projects-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+      .project-card {
+        background: #fff;
+        padding: 2rem;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        border-radius: 8px;
+        border-top: 5px solid #facf0f;
+      }
+
+      /* RESPONSIVE */
+      @media only screen and (max-width: 768px) {
+        .hero-btns { flex-direction: column; width: 100%; }
+        .btn { width: 100%; text-align: center; }
+        .skills-container, .projects-grid { grid-template-columns: 1fr; }
+        .home-hero__socials { display: none; } /* Hide floating bar on mobile */
+        .heading-primary { font-size: 2.5rem; }
       }
     </style>
   </head>
@@ -68,7 +205,9 @@
     <header class="header">
       <div class="header__content">
         <div class="header__logo-container">
-          <div class="header__logo-img-cont"><img src="./assets/jpeg/vaibhav.image.png" class="header__logo-img" /></div>
+          <div class="header__logo-img-cont">
+            <img src="./assets/jpeg/vaibhav.image.png" alt="Logo" class="header__logo-img" />
+          </div>
           <span class="header__logo-sub">Vaibhav Nangia <span class="pmp-badge">PMP®</span></span>
         </div>
         <div class="header__main">
@@ -76,7 +215,7 @@
             <li class="header__link-wrapper"><a href="#about" class="header__link">About</a></li>
             <li class="header__link-wrapper"><a href="#experience" class="header__link">Experience</a></li>
             <li class="header__link-wrapper"><a href="#projects" class="header__link">Projects</a></li>
-            <li class="header__link-wrapper"><a href="#" class="header__link" style="color: #facf0f; font-weight: bold;">Resume</a></li>
+            <li class="header__link-wrapper"><a href="YOUR_RESUME_LINK_HERE" class="header__link" target="_blank" style="color: #facf0f; font-weight: 800;">Resume</a></li>
             <li class="header__link-wrapper"><a href="#contact" class="header__link">Contact</a></li>
           </ul>
         </div>
@@ -85,19 +224,26 @@
 
     <section class="home-hero">
       <div class="home-hero__socials">
-        <div class="home-hero__social"><a href="https://linkedin.com/in/vaibhavnangia08050805/" target="_blank"><img src="https://img.icons8.com/ios-filled/50/000000/linkedin.png" style="width:2rem;"/></a></div>
-        <div class="home-hero__social"><a href="https://github.com/Vaibhav0000" target="_blank"><img src="https://img.icons8.com/ios-filled/50/000000/github.png" style="width:2rem;"/></a></div>
-        <div class="home-hero__social"><a href="mailto:nangiavaibhav9@gmail.com"><img src="https://img.icons8.com/ios-filled/50/000000/mail.png" style="width:2rem;"/></a></div>
+        <div class="home-hero__social"><a href="https://linkedin.com/in/vaibhavnangia08050805/" target="_blank"><img src="https://img.icons8.com/ios-filled/50/000000/linkedin.png"/></a></div>
+        <div class="home-hero__social"><a href="https://github.com/Vaibhav0000" target="_blank"><img src="https://img.icons8.com/ios-filled/50/000000/github.png"/></a></div>
+        <div class="home-hero__social"><a href="mailto:nangiavaibhav9@gmail.com"><img src="https://img.icons8.com/ios-filled/50/000000/mail.png"/></a></div>
       </div>
 
       <div class="hero-container">
-        <div class="hero-image-box"><img src="./assets/jpeg/vaibhav.image.png" alt="Vaibhav" /></div>
-        <div class="hero-text-box">
-          <h1 class="heading-primary">VAIBHAV NANGIA <span class="pmp-badge">PMP®</span></h1>
-          <p class="text-primary">
-            Professional <strong>Business Data Analyst</strong> with 4+ years of experience. I bridge technical data engineering with business strategy to deliver high-impact solutions in Healthcare and E-commerce.
-          </p>
-          <div class="home-hero__cta"><a href="#projects" class="btn btn--bg">View My Projects</a></div>
+        <div class="hero-image-box">
+          <img src="./assets/jpeg/vaibhav.image.png" alt="Vaibhav Nangia" />
+        </div>
+        
+        <h1 class="heading-primary">VAIBHAV NANGIA <span class="pmp-badge">PMP®</span></h1>
+        
+        <p class="text-primary">
+          Professional <strong>Business Data Analyst</strong> with 4+ years of experience. <br>
+          I bridge the gap between technical data engineering and business strategy to deliver high-impact solutions.
+        </p>
+
+        <div class="hero-btns">
+          <a href="#projects" class="btn btn--bg">View My Projects</a>
+          <a href="#experience" class="btn btn--white">View My Experience</a>
         </div>
       </div>
     </section>
@@ -106,8 +252,35 @@
       <div class="main-container">
         <h2 class="heading heading-sec"><span class="heading-sec__main">About Me</span></h2>
         <div class="about__content">
-          <div class="about__content-main">
-            <p class="about__content-details-para">I am a result-oriented professional specializing in translating complex datasets into actionable strategic narratives. With a PMP® certification and deep technical expertise in SQL, Python, and PowerBI, I focus on optimizing operational efficiency and driving data-led decision-making.</p>
+          <p class="about__content-details-para" style="text-align: center; max-width: 800px; margin: 0 auto;">
+            I am a result-oriented professional specializing in translating complex datasets into actionable strategic narratives. With a PMP® certification and deep technical expertise, I focus on optimizing operational efficiency and driving data-led decision-making.
+          </p>
+
+          <div class="skills-container">
+            <div class="skills-column">
+              <h3>Technical Skills</h3>
+              <div class="skills">
+                <div class="skills__skill">SQL</div>
+                <div class="skills__skill">Python</div>
+                <div class="skills__skill">PowerBI</div>
+                <div class="skills__skill">Tableau</div>
+                <div class="skills__skill">Alteryx</div>
+                <div class="skills__skill">Snowflake</div>
+                <div class="skills__skill">MicroStrategy</div>
+                <div class="skills__skill">UiPath (RPA)</div>
+              </div>
+            </div>
+            <div class="skills-column">
+              <h3>Non-Technical Skills</h3>
+              <div class="skills">
+                <div class="skills__skill">Project Management</div>
+                <div class="skills__skill">Agile / Scrum</div>
+                <div class="skills__skill">Stakeholder Management</div>
+                <div class="skills__skill">Strategic Planning</div>
+                <div class="skills__skill">Business Requirements</div>
+                <div class="skills__skill">Change Management</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -117,60 +290,108 @@
       <div class="main-container">
         <h2 class="heading heading-sec"><span class="heading-sec__main">Work Experience</span></h2>
         <div class="exp-container">
+          
           <div class="exp-card">
-            <div class="exp-title">Healthcare Data Analyst</div><div class="exp-company">IBM</div>
-            <p class="exp-summary-text">Supported the OPOR initiative for Oracle Health and Nova Scotia Health by leading high-stakes data migration projects to modernize patient record systems. Focused on ensuring 100% data integrity and compliance during complex digital transformations.</p>
+            <div class="exp-title">Healthcare Data Analyst</div>
+            <div class="exp-company">IBM</div>
+            <p class="exp-summary-text">Supported the One Person One Record (OPOR) initiative for Oracle Health and Nova Scotia Health by leading data migration and system modernization efforts. Focused on ensuring 100% data integrity and compliance during complex digital transformations.</p>
           </div>
+
           <div class="exp-card">
-            <div class="exp-title">Analytics Consultant</div><div class="exp-company">Consulting by CAAS</div>
-            <p class="exp-summary-text">Spearheaded the analysis of Census Canada demographic data, using statistical modeling to derive meaningful stories that supported regional planning and governmental decision-making.</p>
+            <div class="exp-title">Analytics Consultant</div>
+            <div class="exp-company">Consulting by CAAS</div>
+            <p class="exp-summary-text">Transformed raw Census Canada demographic data into meaningful stories through advanced statistical modeling. Uncovered socio-economic trends to support regional planning and governmental decision-making.</p>
           </div>
+
           <div class="exp-card">
-            <div class="exp-title">Business Analyst (E-Commerce)</div><div class="exp-company">Unbound Merino</div>
-            <p class="exp-summary-text">Optimized supply chain and fulfillment operations by building inventory models in Excel that reduced holding costs by 18% and increased stock turnover by 20%. Leveraged product analytics to reduce return cycle times by 25%.</p>
+            <div class="exp-title">Business Analyst (E-Commerce)</div>
+            <div class="exp-company">Unbound Merino</div>
+            <p class="exp-summary-text">Optimized supply chain operations by building inventory models that reduced holding costs by 18% and increased stock turnover by 20%. Leveraged product analytics dashboards to reduce return cycle times by 25%.</p>
           </div>
+
           <div class="exp-card">
-            <div class="exp-title">Analyst - Researcher and Innovation</div><div class="exp-company">George Brown College</div>
-            <p class="exp-summary-text">Utilized Snowflake, Snowflake, and Oracle to resolve over 700 dataset inconsistencies, improving data accuracy by 30%. Reengineered report generation processes, reducing manual effort by 50% and resource utilization by 65%.</p>
+            <div class="exp-title">Analyst - Researcher and Innovation</div>
+            <div class="exp-company">George Brown College</div>
+            <p class="exp-summary-text">Utilized Snowflake and Oracle to resolve over 700 dataset inconsistencies, improving data accuracy by 30%. Reengineered report generation processes, reducing manual effort by 50% and resource utilization by 65%.</p>
           </div>
+
           <div class="exp-card">
-            <div class="exp-title">Business Analyst</div><div class="exp-company">PointClickCare</div>
-            <p class="exp-summary-text">Developed scalable DBT models and data products that reduced reporting latency by 40%. Improved project efficiency by 25% through optimized JIRA workflows and rigorous feature validation/test planning.</p>
+            <div class="exp-title">Business Analyst</div>
+            <div class="exp-company">PointClickCare</div>
+            <p class="exp-summary-text">Developed scalable DBT models and data products that reduced reporting latency by 40%. Improved project efficiency by 25% through optimized JIRA workflows and rigorous feature validation planning.</p>
           </div>
+
           <div class="exp-card">
-            <div class="exp-title">Business Data Analyst</div><div class="exp-company">InfoCepts</div>
+            <div class="exp-title">Business Data Analyst</div>
+            <div class="exp-company">InfoCepts</div>
             <p class="exp-summary-text">Streamlined enterprise reporting by 60% through the development of advanced Tableau and Power BI dashboards. Mentored new team members in Agile settings, achieving a 100% project success rate and earning the "Best Mentor Award."</p>
           </div>
+
         </div>
       </div>
     </section>
 
-    <section id="projects" class="projects sec-pad">
+    <section id="projects" class="projects sec-pad" style="background: #f7f7f7;">
       <div class="main-container">
         <h2 class="heading heading-sec"><span class="heading-sec__main">Projects</span></h2>
-        <div class="projects__content">
-          <div class="projects__row">
-            <div class="projects__row-content">
-              <h3 class="projects__row-content-title">Drug Usage Analysis (Healthcare)</h3>
-              <p class="projects__row-content-desc">Utilized SQL and Alteryx to identify cost-saving opportunities in pharmaceutical utilization for clinical data projects.</p>
+        <div class="projects-grid">
+          
+          <div class="project-card">
+            <h3 class="exp-title">Healthcare Drug Usage Analysis</h3>
+            <p class="exp-company">Technical Business Analyst | SQL & Alteryx</p>
+            <p class="exp-summary-text" style="margin-top: 1rem;">
+              Conducted deep-dive analysis into drug utilization patterns using SQL and Alteryx. Developed insights to improve supply chain efficiency by identifying trends in prescription data and cost-per-unit variances.
+            </p>
+            <div style="margin-top: 1.5rem;">
+               <a href="https://github.com/Vaibhav0000" class="btn btn--med btn--theme" target="_blank">View on GitHub</a>
             </div>
           </div>
+
+          <div class="project-card">
+            <h3 class="exp-title">College Selection Dashboard</h3>
+            <p class="exp-company">Analytics Lead | PowerBI & MicroStrategy</p>
+            <p class="exp-summary-text" style="margin-top: 1rem;">
+              Built an interactive dashboard to assist in college selection analytics. Integrated multi-source data including tuition costs and graduation rates to provide a 360-degree view for stakeholders.
+            </p>
+            <div style="margin-top: 1.5rem;">
+               <a href="https://github.com/Vaibhav0000" class="btn btn--med btn--theme" target="_blank">View Dashboard</a>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
 
     <section id="contact" class="contact sec-pad dynamicBg">
       <div class="main-container">
-        <h2 class="heading heading-sec"><span class="heading-sec__main heading-sec__main--lt">Contact</span></h2>
-        <p style="text-align: center; color: white; font-size: 2rem;"><strong>Email:</strong> nangiavaibhav9@gmail.com</p>
+        <h2 class="heading heading-sec"><span class="heading-sec__main heading-sec__main--lt">Contact Me</span></h2>
+        <div style="text-align: center; color: white;">
+          <p style="font-size: 2.2rem; margin-bottom: 2rem; font-weight: 600;">Let's Connect!</p>
+          
+          <div style="margin-bottom: 1.5rem;">
+            <p style="font-size: 1.8rem; margin-bottom: 0.5rem;">Email</p>
+            <a href="mailto:nangiavaibhav9@gmail.com" style="color: #facf0f; font-size: 2rem; font-weight: 700; text-decoration: none;">nangiavaibhav9@gmail.com</a>
+          </div>
+
+          <div>
+            <p style="font-size: 1.8rem; margin-bottom: 0.5rem;">LinkedIn</p>
+            <a href="https://linkedin.com/in/vaibhavnangia08050805/" target="_blank" style="color: #facf0f; font-size: 2rem; font-weight: 700; text-decoration: none;">
+              in/vaibhavnangia08050805
+            </a>
+          </div>
+
+        </div>
       </div>
     </section>
 
     <footer class="main-footer">
       <div class="main-container">
-        <div class="main-footer__lower">&copy; 2026 Vaibhav Nangia. PMP®</div>
+        <div class="main-footer__lower">
+          &copy; 2026 Vaibhav Nangia. PMP®
+        </div>
       </div>
     </footer>
+    
     <script src="./index.js"></script>
   </body>
 </html>
