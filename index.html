@@ -7,161 +7,438 @@
     <title>Vaibhav Nangia, PMP® | Business Data Analyst</title>
     <link rel="stylesheet" href="css/style.css" />
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap" rel="stylesheet" />
-
+    
     <style>
+      /* --- GLOBAL RESETS & BASICS --- */
       * { box-sizing: border-box; }
       html { scroll-behavior: smooth; }
-
-      /* EXPERIENCE LOGO LAYOUT */
-      .exp-card {
+      
+      /* --- HEADER & NAVIGATION --- */
+      .header__logo-img-cont {
+        background: #fff !important; 
+        width: 45px;
+        height: 45px;
         display: flex;
-        gap: 2rem;
-        margin-bottom: 3.5rem;
-        border-left: 5px solid #facf0f;
-        padding: 2.5rem;
-        background: #fff;
-        align-items: flex-start;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 1px solid #eee;
+      }
+      .header__logo-img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+
+      /* --- HERO SECTION --- */
+      .home-hero {
+        background: linear-gradient(to right, rgba(30, 39, 46, 0.98), rgba(30, 39, 46, 0.98)), url("./assets/svg/common-bg.svg");
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 6rem 2rem 2rem 2rem;
+        position: relative;
+        text-align: center;
       }
 
-      .exp-logo {
-        width: 70px;
-        height: 70px;
+      .hero-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        max-width: 900px;
+        width: 100%;
+        z-index: 10;
+      }
+
+      .hero-image-box {
+        width: 280px;
+        height: 280px;
+        border: 6px solid #facf0f;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        margin-bottom: 2.5rem;
+        background: #fff;
+      }
+
+      .hero-image-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center 10%;
+      }
+
+      .heading-primary {
+        color: #fff;
+        font-size: 3.5rem;
+        margin-bottom: 1.5rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .text-primary {
+        color: #eee;
+        font-size: 1.6rem;
+        line-height: 1.6;
+        margin-bottom: 3rem;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .pmp-badge {
+        background: #facf0f;
+        color: #000;
+        padding: 2px 10px;
+        border-radius: 4px;
+        font-size: 1rem;
+        font-weight: 800;
+        vertical-align: middle;
+        margin-left: 10px;
+        display: inline-block;
+      }
+
+      /* UNIFORM BUTTONS FIX */
+      .hero-btns {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+      }
+      
+      /* Shared style for both buttons to ensure uniformity */
+      .hero-btn-common {
+        min-width: 280px; /* Forces equal width */
+        font-weight: 700;
+        text-transform: uppercase;
+        padding: 1.5rem 0; /* Vertical padding */
+        border-radius: 5px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        transition: transform 0.3s;
+        border: 2px solid transparent;
+        letter-spacing: 1px;
+        display: inline-block;
+        font-size: 1.2rem;
+        cursor: pointer;
+        text-decoration: none;
+        text-align: center;
+      }
+
+      .btn--white { background: #fff; color: #333; }
+      .btn--bg { background: #facf0f; color: #333; } /* Assuming yellow from your theme */
+      
+      .hero-btn-common:hover { transform: translateY(-3px); }
+
+      /* --- FLOATING SOCIALS --- */
+      .home-hero__socials {
+        position: fixed;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        display: flex;
+        flex-direction: column;
+        z-index: 100;
+        background: #fff;
+        box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+        border-radius: 0 5px 5px 0;
+      }
+      .home-hero__social {
+        width: 4.5rem;
+        height: 4.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-bottom: 1px solid #eee;
+        transition: background 0.2s;
+      }
+      .home-hero__social:hover { background: #f4f4f4; }
+      .home-hero__social img { width: 2.2rem; }
+
+      /* --- ABOUT & SKILLS --- */
+      /* Stacked Layout Fix */
+      .skills-container {
+        display: flex;
+        flex-direction: column;
+        gap: 40px; /* Space between Tech and Non-Tech */
+        margin-top: 3rem;
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .skills-column h3 {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+        border-bottom: 3px solid #facf0f;
+        display: inline-block;
+        padding-bottom: 5px;
+        width: 100%;
+        text-align: left;
+      }
+      /* Center alignment for skill tags */
+      .skills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+      }
+
+      /* --- EXPERIENCE --- */
+      .exp-container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
+      .exp-card { 
+        margin-bottom: 3.5rem; 
+        border-left: 5px solid #facf0f; 
+        padding-left: 2.5rem; 
+        background: #fff;
+      }
+      .exp-title { font-size: 2rem; font-weight: 800; color: #111; margin-bottom: 0.5rem; }
+      .exp-company { font-size: 1.4rem; font-weight: 700; color: #facf0f; text-transform: uppercase; margin-bottom: 1rem; letter-spacing: 0.5px; }
+      .exp-summary-text { font-size: 1.5rem; line-height: 1.7; color: #444; }
+
+      /* --- PROJECTS --- */
+      .projects-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+      .project-card {
+        background: #fff;
+        padding: 2rem;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        border-radius: 8px;
+        border-top: 5px solid #facf0f;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      /* --- CONTACT STRIP FIX --- */
+      .contact-strip {
+        background: #2c3e50; /* Professional Dark Blue/Grey */
+        padding: 4rem 2rem; /* Reduced padding for strip effect */
+        text-align: center;
+        color: white;
+      }
+      .contact-statement {
+        font-size: 1.8rem;
+        max-width: 800px;
+        margin: 0 auto 3rem auto;
+        line-height: 1.6;
+        font-weight: 300;
+      }
+
+      /* RESPONSIVE */
+      @media only screen and (max-width: 768px) {
+        .hero-btns { flex-direction: column; width: 100%; }
+        .hero-btn-common { width: 100%; }
+        .projects-grid { grid-template-columns: 1fr; }
+        .home-hero__socials { display: none; }
+        .heading-primary { font-size: 2.5rem; }
+      }
+
+      /* === Minimal safe additions for logos & project images === */
+      /* Keep these tiny and non-invasive */
+      .exp-card__row {
+        display: flex;
+        align-items: flex-start;
+        gap: 18px;
+      }
+      .exp-card__logo {
+        width: 64px;
+        height: 64px;
         flex-shrink: 0;
         display: flex;
         align-items: center;
         justify-content: center;
       }
-
-      .exp-logo img {
+      .exp-card__logo img {
         max-width: 100%;
         max-height: 100%;
         object-fit: contain;
       }
-
-      .exp-content {
+      .exp-card__text {
         flex: 1;
       }
 
-      .exp-title {
-        font-size: 2rem;
-        font-weight: 800;
-        margin-bottom: 0.5rem;
-      }
-
-      .exp-company {
-        font-size: 1.4rem;
-        font-weight: 700;
-        color: #facf0f;
-        text-transform: uppercase;
+      .project-screenshot {
+        display: flex;
+        justify-content: center;
         margin-bottom: 1rem;
       }
-
-      .exp-summary-text {
-        font-size: 1.5rem;
-        line-height: 1.7;
-        color: #444;
-      }
-
-      /* PROJECT IMAGE */
-      .project-screenshot {
-        text-align: center;
-        margin-bottom: 1.5rem;
-      }
-
       .project-screenshot img {
         max-width: 100%;
+        height: auto;
         border-radius: 6px;
-        box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        box-shadow: 0 6px 20px rgba(0,0,0,0.12);
       }
     </style>
   </head>
-
   <body>
+    <header class="header">
+      <div class="header__content">
+        <div class="header__logo-container">
+          <div class="header__logo-img-cont">
+            <img src="./assets/jpeg/vaibhav.image.png" alt="Logo" class="header__logo-img" />
+          </div>
+          <span class="header__logo-sub">Vaibhav Nangia <span class="pmp-badge">PMP®</span></span>
+        </div>
+        <div class="header__main">
+          <ul class="header__links">
+            <li class="header__link-wrapper"><a href="#about" class="header__link">About</a></li>
+            <li class="header__link-wrapper"><a href="#experience" class="header__link">Experience</a></li>
+            <li class="header__link-wrapper"><a href="#projects" class="header__link">Projects</a></li>
+            <li class="header__link-wrapper"><a href="assets/resume/Vaibhav Nangia 2026.pdf" class="header__link" download="Vaibhav_Nangia_Business_Data_Analyst_Resume.pdf" style="color: #facf0f; font-weight: 800;">Resume</a></li>
+            <li class="header__link-wrapper"><a href="#contact" class="header__link">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
 
-    <!-- EXPERIENCE SECTION -->
+    <section class="home-hero">
+      <div class="home-hero__socials">
+        <div class="home-hero__social"><a href="https://linkedin.com/in/vaibhavnangia08050805/" target="_blank"><img src="https://img.icons8.com/ios-filled/50/000000/linkedin.png"/></a></div>
+        <div class="home-hero__social"><a href="https://github.com/Vaibhav0000" target="_blank"><img src="https://img.icons8.com/ios-filled/50/000000/github.png"/></a></div>
+        <div class="home-hero__social"><a href="mailto:nangiavaibhav9@gmail.com"><img src="https://img.icons8.com/ios-filled/50/000000/mail.png"/></a></div>
+      </div>
+
+      <div class="hero-container">
+        <div class="hero-image-box">
+          <img src="./assets/jpeg/vaibhav.image.png" alt="Vaibhav Nangia" />
+        </div>
+        
+        <h1 class="heading-primary">VAIBHAV NANGIA <span class="pmp-badge">PMP®</span></h1>
+        
+        <p class="text-primary">
+          Professional <strong>Business Data Analyst</strong> with 4+ years of experience. <br>
+          I help organizations turn complex data into decision-ready insights — driving operational improvements, strategic planning, and cross-functional alignment using SQL, Python, Power BI & Tableau.
+          See my key projects and experience below 👇
+        </p>
+
+        <div class="hero-btns">
+          <a href="#projects" class="hero-btn-common btn--bg">View My Projects</a>
+          <a href="#experience" class="hero-btn-common btn--white">View My Experience</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about sec-pad">
+      <div class="main-container">
+        <h2 class="heading heading-sec"><span class="heading-sec__main">About Me</span></h2>
+        <div class="about__content">
+          <p class="about__content-details-para" style="text-align: center; max-width: 900px; margin: 0 auto 3rem auto; line-height: 1.8;">
+            I am a result-oriented Business Data Analyst specializing in translating complex datasets into actionable strategic narratives. With a PMP® certification and deep technical expertise, I focus on optimizing operational efficiency and driving data-led decision-making. My background spans Healthcare, Education, and E-commerce, where I have consistently reduced costs, improved data accuracy, and streamlined reporting workflows. I excel at leading cross-functional teams and implementing agile methodologies to deliver projects on time and within budget.
+          </p>
+
+          <div class="skills-container">
+            <div class="skills-column">
+              <h3>Technical Skills</h3>
+              <div class="skills">
+                <div class="skills__skill">SQL</div>
+                <div class="skills__skill">Power BI</div>
+                <div class="skills__skill">Tableau</div>
+                <div class="skills__skill">Python</div>
+                <div class="skills__skill">MicroStrategy</div>
+                <div class="skills__skill">Snowflake</div>
+                <div class="skills__skill">Alteryx</div>
+                <div class="skills__skill">UiPath (RPA)</div>
+              </div>
+            </div>
+            
+            <div class="skills-column">
+              <h3>Non-Technical Skills</h3>
+              <div class="skills">
+                <div class="skills__skill">Project Management</div>
+                <div class="skills__skill">Agile / Scrum</div>
+                <div class="skills__skill">Stakeholder Management</div>
+                <div class="skills__skill">Strategic Planning</div>
+                <div class="skills__skill">Business Requirements</div>
+                <div class="skills__skill">Change Management</div>
+                <div class="skills__skill">Cross-functional Leadership</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="experience" class="sec-pad" style="background: #fdfdfd;">
       <div class="main-container">
-        <h2 class="heading heading-sec">
-          <span class="heading-sec__main">Work Experience</span>
-        </h2>
-
+        <h2 class="heading heading-sec"><span class="heading-sec__main">Work Experience</span></h2>
         <div class="exp-container">
-
+          
           <div class="exp-card">
-            <div class="exp-logo">
-              <img src="assets/jpeg/ibm_logo.jpg" alt="IBM Logo">
-            </div>
-            <div class="exp-content">
-              <div class="exp-title">Healthcare Data Analyst</div>
-              <div class="exp-company">IBM</div>
-              <p class="exp-summary-text">
-                Supported the One Person One Record (OPOR) initiative by leading data migration and integrity validation for Oracle Health implementations across Nova Scotia Health.
-              </p>
+            <div class="exp-card__row">
+              <div class="exp-card__logo">
+                <img src="assets/jpeg/ibm_logo.jpg" alt="IBM logo">
+              </div>
+              <div class="exp-card__text">
+                <div class="exp-title">Healthcare Data Analyst</div>
+                <div class="exp-company">IBM</div>
+                <p class="exp-summary-text">Supported the One Person One Record (OPOR) initiative for Oracle Health and Nova Scotia Health by leading data migration and system modernization efforts. Focused on ensuring data integrity and compliance during complex digital transformations.</p>
+              </div>
             </div>
           </div>
 
           <div class="exp-card">
-            <div class="exp-logo">
-              <img src="assets/jpeg/consulting_by_caas_logo.jpg" alt="Consulting by CAAS Logo">
-            </div>
-            <div class="exp-content">
-              <div class="exp-title">Analytics Consultant</div>
-              <div class="exp-company">Consulting by CAAS</div>
-              <p class="exp-summary-text">
-                Designed geodemographic models using 5.5M+ Census records to support policy, market, and regional planning decisions.
-              </p>
-            </div>
-          </div>
-
-          <div class="exp-card">
-            <div class="exp-logo">
-              <img src="assets/jpeg/unbound_merino_logo.jpg" alt="Unbound Merino Logo">
-            </div>
-            <div class="exp-content">
-              <div class="exp-title">Business Analyst (E-Commerce)</div>
-              <div class="exp-company">Unbound Merino</div>
-              <p class="exp-summary-text">
-                Optimized inventory and fulfillment analytics, reducing holding costs by 18% and improving stock turnover by 20%.
-              </p>
+            <div class="exp-card__row">
+              <div class="exp-card__logo">
+                <img src="assets/jpeg/consulting_by_caas_logo.jpg" alt="Consulting by CAAS logo">
+              </div>
+              <div class="exp-card__text">
+                <div class="exp-title">Analytics Consultant</div>
+                <div class="exp-company">Consulting by CAAS</div>
+                <p class="exp-summary-text">Transformed raw Census Canada demographic data into meaningful stories through advanced statistical modeling. Uncovered socio-economic trends to support regional planning and governmental decision-making.</p>
+              </div>
             </div>
           </div>
 
           <div class="exp-card">
-            <div class="exp-logo">
-              <img src="assets/jpeg/george_brown_college_logo.jpg" alt="George Brown College Logo">
-            </div>
-            <div class="exp-content">
-              <div class="exp-title">Analyst – Research & Innovation</div>
-              <div class="exp-company">George Brown College</div>
-              <p class="exp-summary-text">
-                Cleaned and standardized datasets across 700+ cultural institutions, improving data accuracy by 30% and cutting reporting time by 50%.
-              </p>
-            </div>
-          </div>
-
-          <div class="exp-card">
-            <div class="exp-logo">
-              <img src="assets/jpeg/pointclickcare_logo.jpg" alt="PointClickCare Logo">
-            </div>
-            <div class="exp-content">
-              <div class="exp-title">Business Analyst</div>
-              <div class="exp-company">PointClickCare</div>
-              <p class="exp-summary-text">
-                Built DBT data models and optimized Agile workflows, reducing reporting latency by 40% and improving delivery velocity.
-              </p>
+            <div class="exp-card__row">
+              <div class="exp-card__logo">
+                <img src="assets/jpeg/unbound_merino_logo.jpg" alt="Unbound Merino logo">
+              </div>
+              <div class="exp-card__text">
+                <div class="exp-title">Business Analyst (E-Commerce)</div>
+                <div class="exp-company">Unbound Merino</div>
+                <p class="exp-summary-text">Optimized supply chain operations by building inventory models that reduced holding costs by 18% and increased stock turnover by 20%. Leveraged product analytics dashboards to reduce return cycle times by 25%.</p>
+              </div>
             </div>
           </div>
 
           <div class="exp-card">
-            <div class="exp-logo">
-              <img src="assets/jpeg/infocepts_logo.jpg" alt="InfoCepts Logo">
+            <div class="exp-card__row">
+              <div class="exp-card__logo">
+                <img src="assets/jpeg/george_brown_college_logo.jpg" alt="George Brown College logo">
+              </div>
+              <div class="exp-card__text">
+                <div class="exp-title">Analyst - Researcher and Innovation</div>
+                <div class="exp-company">George Brown College</div>
+                <p class="exp-summary-text">Utilized Snowflake and Oracle to resolve over 700 dataset inconsistencies, improving data accuracy by 30%. Reengineered report generation processes, reducing manual effort by 50% and resource utilization by 65%.</p>
+              </div>
             </div>
-            <div class="exp-content">
-              <div class="exp-title">Business Data Analyst</div>
-              <div class="exp-company">InfoCepts</div>
-              <p class="exp-summary-text">
-                Delivered enterprise BI dashboards in Tableau and Power BI, improving operational reporting efficiency by 60%.
-              </p>
+          </div>
+
+          <div class="exp-card">
+            <div class="exp-card__row">
+              <div class="exp-card__logo">
+                <img src="assets/jpeg/pointclickcare_logo.jpg" alt="PointClickCare logo">
+              </div>
+              <div class="exp-card__text">
+                <div class="exp-title">Business Analyst</div>
+                <div class="exp-company">PointClickCare</div>
+                <p class="exp-summary-text">Developed scalable DBT models and data products that reduced reporting latency by 40%. Improved project efficiency by 25% through optimized JIRA workflows and rigorous feature validation planning.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="exp-card">
+            <div class="exp-card__row">
+              <div class="exp-card__logo">
+                <img src="assets/jpeg/infocepts_logo.jpg" alt="InfoCepts logo">
+              </div>
+              <div class="exp-card__text">
+                <div class="exp-title">Business Data Analyst</div>
+                <div class="exp-company">InfoCepts</div>
+                <p class="exp-summary-text">Streamlined enterprise reporting by 60% through the development of advanced Tableau and Power BI dashboards. Mentored new team members in Agile settings, achieving consistent project delivery and earning the "Best Mentor Award."</p>
+              </div>
             </div>
           </div>
 
@@ -169,38 +446,83 @@
       </div>
     </section>
 
-    <!-- PROJECTS SECTION -->
     <section id="projects" class="projects sec-pad" style="background: #f7f7f7;">
       <div class="main-container">
-        <h2 class="heading heading-sec">
-          <span class="heading-sec__main">Projects</span>
-        </h2>
-
+        <h2 class="heading heading-sec"><span class="heading-sec__main">Projects</span></h2>
         <div class="projects-grid">
-
+          
           <div class="project-card">
             <div class="project-screenshot">
               <img src="assets/jpeg/Dashboard 1.png" alt="Healthcare Drug Use Dashboard">
             </div>
-            <h3 class="exp-title">Healthcare Drug Usage Analytics Platform</h3>
-            <p class="exp-summary-text">
-              Advanced descriptive-to-predictive analytics platform using SQL, Python, Tableau, and KNIME to forecast drug utilization and simulate policy scenarios.
-            </p>
+            <div>
+              <h3 class="exp-title">Healthcare Drug Usage Analysis</h3>
+              <p class="exp-company">Technical Business Analyst | SQL & Alteryx</p>
+              <p class="exp-summary-text" style="margin-top: 1rem;">
+                <strong>Problem:</strong> Fragmented prescription and utilization data made it hard to identify clinical and cost trends. <br>
+                <strong>Role:</strong> Performed ETL and exploratory analysis using SQL and Alteryx, built normalized datasets and visuals. <br>
+                <strong>Impact:</strong> Delivered insights that highlighted prescribing trends and cost variances, enabling supply-chain and clinical stakeholders to prioritise follow-up actions.
+              </p>
+            </div>
+            <div style="margin-top: 2rem;">
+               <a href="https://github.com/Vaibhav0000/technical-ba-healthcare-drug-usage-analysis" class="btn btn--med btn--theme" target="_blank">View on GitHub</a>
+            </div>
           </div>
 
           <div class="project-card">
             <div class="project-screenshot">
               <img src="assets/jpeg/Dashboard 2.jpg" alt="College Selection Dashboard">
             </div>
-            <h3 class="exp-title">College Selection Analytics Dashboard</h3>
-            <p class="exp-summary-text">
-              Interactive Power BI dashboard integrating cost, outcomes, and institutional data to support evidence-based education decisions.
-            </p>
+            <div>
+              <h3 class="exp-title">College Selection Dashboard</h3>
+              <p class="exp-company">Analytics Lead | PowerBI & MicroStrategy</p>
+              <p class="exp-summary-text" style="margin-top: 1rem;">
+                <strong>Problem:</strong> Prospective students lacked a concise, comparable view of colleges across cost, outcomes and geography. <br>
+                <strong>Role:</strong> Integrated multi-source datasets, designed KPIs and interactive Power BI dashboards for decision-making. <br>
+                <strong>Impact:</strong> Provided a user-friendly tool that reduced research time and supported data-driven college selection recommendations.
+              </p>
+            </div>
+            <div style="margin-top: 2rem;">
+               <a href="https://github.com/Vaibhav0000/foundational-analytics-college-selection-dashboard" class="btn btn--med btn--theme" target="_blank">View on GitHub</a>
+            </div>
           </div>
 
         </div>
       </div>
     </section>
 
+    <section id="contact" class="contact-strip">
+      <div class="main-container">
+        <h2 class="heading heading-sec"><span class="heading-sec__main heading-sec__main--lt">Why Hire Me?</span></h2>
+        
+        <p class="contact-statement">
+          I bring a unique blend of technical data proficiency and strategic business acumen. My proven track record in reducing costs, improving data accuracy, and leading cross-functional teams makes me an immediate asset to drive your organization's data initiatives forward.
+        </p>
+
+        <div style="border-top: 1px solid rgba(255,255,255,0.2); padding-top: 2rem; display: flex; justify-content: center; gap: 4rem; flex-wrap: wrap;">
+          <div>
+            <p style="font-size: 1.4rem; margin-bottom: 0.5rem; color: #facf0f;">EMAIL</p>
+            <a href="mailto:nangiavaibhav9@gmail.com" style="color: #fff; font-size: 1.6rem; text-decoration: none;">nangiavaibhav9@gmail.com</a>
+          </div>
+
+          <div>
+            <p style="font-size: 1.4rem; margin-bottom: 0.5rem; color: #facf0f;">LINKEDIN</p>
+            <a href="https://linkedin.com/in/vaibhavnangia08050805/" target="_blank" style="color: #fff; font-size: 1.6rem; text-decoration: none;">
+              in/vaibhavnangia08050805
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="main-footer">
+      <div class="main-container">
+        <div class="main-footer__lower">
+          &copy; 2026 Vaibhav Nangia. PMP®
+        </div>
+      </div>
+    </footer>
+    
+    <script src="./index.js"></script>
   </body>
 </html>
